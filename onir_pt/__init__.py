@@ -522,9 +522,9 @@ class OpenNIRPyterrierReRanker(pyterrier.transformer.EstimatorBase):
 
 
 def _inject(cls, context={}):
-    spec = inspect.getargspec(cls.__init__)
+    spec = inspect.signature(cls.__init__)
     args = []
-    for arg in spec.args:
+    for arg in spec.parameters:
         if arg == 'self':
             continue
         elif arg == 'config':
